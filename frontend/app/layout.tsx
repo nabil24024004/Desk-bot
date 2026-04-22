@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mochi Hub Dashboard",
+  title: "Muon Hub",
   description: "AI Assistant Dashboard",
 };
 

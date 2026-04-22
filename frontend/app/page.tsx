@@ -92,13 +92,13 @@ const itemVariants: Variants = {
   }
 };
 
-export default function BentoDashboard() {
+export default function MuonHub() {
   const [isConnected, setIsConnected] = useState(false);
   const [mood, setMood] = useState('idle');
   const [weather, setWeather] = useState({ temp: '--', desc: 'Syncing...', rainWarning: false });
   const [track, setTrack] = useState('Lofi Beats for Robo-Friends');
   const [chat, setChat] = useState<{role: 'user' | 'bot', text: string}[]>([
-    { role: 'bot', text: 'HELLO! I AM MOCHI, YOUR DESK BOT CREATED BY ABRAR. I CAN SYNC SPOTIFY, SHOW WEATHER, AND VIBE WITH YOU!' }
+    { role: 'bot', text: 'HELLO! I AM MUON, YOUR DESK BOT CREATED BY ABRAR. I CAN SYNC SPOTIFY, SHOW WEATHER, AND VIBE WITH YOU!' }
   ]);
   const [inputText, setInputText] = useState('');
   const wsRef = useRef<WebSocket | null>(null);
@@ -186,7 +186,7 @@ export default function BentoDashboard() {
           className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
         >
           <div>
-            <h1 className="text-3xl font-pixel text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]">Mochi Dashboard</h1>
+            <h1 className="text-3xl font-pixel text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]">Muon Hub</h1>
             <p className="text-slate-400 text-[10px] mt-2 tracking-widest font-pixel">SYSTEM_VERSION: 1.0.4</p>
           </div>
           
@@ -204,7 +204,7 @@ export default function BentoDashboard() {
           className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 flex-1"
         >
           
-          {/* Mochi Hero Card */}
+          {/* Muon Hero Card */}
           <motion.div 
             variants={itemVariants}
             whileHover={{ scale: 1.01, borderColor: 'rgba(250,204,21,0.4)' }}
@@ -244,7 +244,7 @@ export default function BentoDashboard() {
               onClick={sendPat}
               className="mt-6 w-full py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-pixel shadow-[4px_4px_0px_#854d0e] active:translate-y-1 active:shadow-none transition-all flex justify-center items-center gap-3 text-sm"
             >
-              [ PET MOCHI ]
+              [ PET MUON ]
             </button>
           </motion.div>
 
@@ -258,7 +258,7 @@ export default function BentoDashboard() {
               <div className="p-2 bg-indigo-500 text-white shadow-[4px_4px_0px_#3730a3]">
                 <PixelBrain size={20} />
               </div>
-              <h2 className="text-lg font-pixel text-slate-100">CHAT_WITH_MOCHI</h2>
+              <h2 className="text-lg font-pixel text-slate-100">CHAT_WITH_MUON</h2>
             </div>
             
             <div className="flex-1 overflow-y-auto mb-4 space-y-3 pr-2 overflow-x-hidden">
@@ -393,7 +393,7 @@ export default function BentoDashboard() {
         
         <footer className="mt-10 py-6 border-t border-slate-800/50 flex justify-between items-center opacity-40">
            <p className="text-[9px] font-pixel uppercase tracking-widest leading-loose">
-             © 2026 MOCHI_DESK_BOT<br/>ALL RIGHTS RESERVED
+             © 2026 MUON_BOT<br/>ALL RIGHTS RESERVED
            </p>
            <div className="h-4 w-20 bg-emerald-500/20 rounded-none relative overflow-hidden">
               <motion.div 

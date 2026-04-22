@@ -1,0 +1,35 @@
+#From components to ESP32 PINS:
+
+## I2C LCD DISPLAY:
+
+VSS -> GND
+VDD -> +3.3
+VE -> GND
+RS -> ESP32 PIN 21
+RW -> GND
+E -> ESP32 PIN 22
+D4 -> 18
+D5 -> 19
+D6 -> 23
+D7 -> 5
+
+## TOUCH MODULE
+
+I/O -> ESP32 PIN 4
+
+## OLED DISPLAY
+
+SCK -> 27
+SDA -> 14
+GND -> GND
+VCC -> 3.3
+
+## PASSIVE BAZZER
+
+POSITIVE -> ESP32 PIN 32
+
+## RGB LED
+
+R -> 26
+G -> 25
+B -> 33

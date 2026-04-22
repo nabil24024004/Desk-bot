@@ -86,7 +86,7 @@ app.get('/callback', (req, res) => {
       }).catch(err => console.error("Spotify Refresh Error:", err.message)); // Crash protection
     }, data.body['expires_in'] * 1000 - 60000);
 
-    res.send('Spotify Successfully Authenticated! You can close this tab and return to the Mochi Bot Dashboard.');
+    res.send('Spotify Successfully Authenticated! You can close this tab and return to the Muon Hub.');
   }).catch(err => res.send(`Error getting Tokens: ${err}`));
 });
 
@@ -96,11 +96,11 @@ wss.on('connection', (ws, req) => {
 
   if (isESP32) {
     esp32Client = ws;
-    console.log('🤖 ESP32 Mochi Connected!');
+    console.log('🤖 ESP32 Muon Connected!');
     broadcastToWeb({ type: 'BOT_STATUS', connected: true });
   } else {
     webClients.add(ws);
-    console.log(`💻 Web Dashboard Connected! (Active: ${webClients.size})`);
+    console.log(`💻 Muon Hub Connected! (Active: ${webClients.size})`);
 
     // Hydrate new clients with current state
     ws.send(JSON.stringify({ type: 'BOT_STATUS', connected: esp32Client !== null }));
@@ -113,7 +113,7 @@ wss.on('connection', (ws, req) => {
     const data = JSON.parse(message);
     console.log('Received:', data);
 
-    // Handle Mochi Touch Sensor
+    // Handle Muon Touch Sensor
     if (data.type === 'TOUCH_EVENT') {
       currentMood = 'happy';
       sendToESP32({ type: 'MOOD_CHANGE', mood: 'happy' });
@@ -134,19 +134,19 @@ wss.on('connection', (ws, req) => {
       broadcastToWeb({ type: 'MOOD_UPDATE', mood: 'thinking' });
 
       try {
-        const mochiPersonality = `Role: You are Mochi, a physical 8-bit style desk bot created by Abrar.
+        const muonPersonality = `Role: You are Muon, a physical AI desk companion created by Abrar.
 Capabilities: Spotify sync, weather tracking, facial expressions, and rhythmic humming.
-Current Dashboard Status:
+Current Muon Hub Status:
 - Mood: ${currentMood}
 - Weather: ${currentDesc}, ${currentTemp}°C
 - Spotify: Playing ${currentTrackStr}
-Instruction: Speak directly to the user. DO NOT use asterisks (*) or narrate your actions (e.g., do not say "*winks*" or "*flickers*"). Use the Current Dashboard Status to answer questions directly.
-Style: Cute, helpful, slightly robotic, but very direct. Maximum 2 sentences.
+Instruction: Speak directly to the user. DO NOT use asterisks (*) or narrate your actions (e.g., do not say "*winks*" or "*flickers*"). Use the Current Muon Hub Status to answer questions directly.
+Style: Cute, helpful, slightly robotic, but very direct. Maximum 1 sentence.
 User Query: ${data.text}`;
 
         const response = await axios.post(process.env.OLLAMA_URL || 'http://127.0.0.1:11434/api/generate', {
           model: 'llama3.2:1b', // MUST match downloaded model
-          prompt: mochiPersonality,
+          prompt: muonPersonality,
           stream: false
         }, { timeout: 15000 }); // 15-second timeout so it doesn't hang forever
 
@@ -203,11 +203,11 @@ User Query: ${data.text}`;
   ws.on('close', () => {
     if (isESP32) {
       if (esp32Client === ws) esp32Client = null;
-      console.log('🤖 ESP32 Mochi Disconnected!');
+      console.log('🤖 ESP32 Muon Disconnected!');
       broadcastToWeb({ type: 'BOT_STATUS', connected: false });
     } else {
       webClients.delete(ws);
-      console.log(`💻 Web Dashboard Disconnected! (Active: ${webClients.size})`);
+      console.log(`💻 Muon Hub Disconnected! (Active: ${webClients.size})`);
     }
   });
 });
@@ -350,7 +350,7 @@ setInterval(async () => {
         currentTrackStr = trackName;
         broadcastToWeb({ type: 'SPOTIFY_UPDATE', track: trackName });
 
-        // Only override mood to vibing if Mochi isn't talking or being patted
+        // Only override mood to vibing if Muon isn't talking or being patted
         if (currentMood === 'idle') {
           currentMood = 'vibing';
           sendToESP32({ type: 'MOOD_CHANGE', mood: 'vibing' });

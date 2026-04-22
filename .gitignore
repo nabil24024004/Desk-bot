@@ -32,4 +32,4 @@ Thumbs.db
 *.swo
 
 # Hardware - (User requested to NOT exclude/ignore hardware files)
-# Tracking esp32_mochi/ contents
+# Tracking esp32_muon/ contents

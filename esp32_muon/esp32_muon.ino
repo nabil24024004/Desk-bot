@@ -72,7 +72,7 @@ void setup() {
   lcd.begin(16, 2);
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Booting Mochi...");
+  lcd.print("Booting Muon...");
 
   pinMode(TOUCH_PIN, INPUT);
   
@@ -124,8 +124,8 @@ void loop() {
     isTouched = false;
   }
 
-  // Draw Mochi based on state
-  drawMochiFace();
+  // Draw Muon based on state
+  drawMuonFace();
 
   // Audio Engine
   updateBuzzer();
@@ -255,8 +255,8 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
   }
 }
 
-// --- Mochi Animation Engine ---
-void drawMochiFace() {
+// --- Muon Animation Engine ---
+void drawMuonFace() {
   oled.clearDisplay();
   
   unsigned long currentMillis = millis();

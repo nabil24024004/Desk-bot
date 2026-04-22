@@ -1,6 +1,6 @@
-# 🚀 DEPLOYMENT GUIDE: Launching Mochi
+# 🚀 DEPLOYMENT GUIDE: Launching Muon
 
-Follow these steps to bring Mochi to life on your local machine and hardware.
+Follow these steps to bring Muon to life on your local machine and hardware.
 
 ## 1. Prerequisites
 - **Node.js:** v18+ 
@@ -25,22 +25,22 @@ node server.js
 ```
 The server will start on [http://127.0.0.1:3000].
 
-## 4. Running the Dashboard (Frontend)
+## 4. Running the Muon Hub (Frontend)
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-Access the dashboard at [http://localhost:3001] (or the Next.js default port).
+Access the Muon Hub at [http://localhost:3001] (or the Next.js default port).
 
 ## 5. Setting up the Brain (Ollama)
-Mochi uses the `llama3.2:1b` model for low-latency responses.
+Muon uses the `llama3.2:1b` model for low-latency responses.
 ```bash
 ollama run llama3.2:1b
 ```
 
 ## 6. Flashing the Hardware (ESP32)
-1. Open `esp32_mochi/esp32_mochi.ino` in Arduino IDE.
+1. Open `esp32_muon/esp32_muon.ino` in Arduino IDE.
 2. Ensure you have the following libraries installed:
     - `WebSocketsClient`
     - `ArduinoJson`
@@ -53,8 +53,8 @@ ollama run llama3.2:1b
 ## 7. Spotify Authentication
 Once the backend is running, visit:
 [http://127.0.0.1:3000/login]
-Log in with your Spotify account to grant playback permissions. Mochi will store tokens in `spotify_tokens.json` automatically for future use.
+Log in with your Spotify account to grant playback permissions. Muon will store tokens in `spotify_tokens.json` automatically for future use.
 
 ---
 > [!CAUTION]
-> Ensure the ESP32 and the Backend are on the **same WiFi network**. If Mochi is silent, check the `websocket_server` IP address in the Arduino code.
+> Ensure the ESP32 and the Backend are on the **same WiFi network**. If Muon is silent, check the `websocket_server` IP address in the Arduino code.

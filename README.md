@@ -1,15 +1,15 @@
-# 🤖 Desk Bot (Mochi)
+# 🤖 Desk Bot (Muon)
 
-Desk Bot is an intelligent desk companion combining **Hardware**, **Backend**, and **Frontend** to create a seamless interactive experience. Featuring an ESP32-powered robot (Mochi) that reacts to music and system states via a unified dashboard.
+Desk Bot is an intelligent desk companion combining **Hardware**, **Backend**, and **Frontend** to create a seamless interactive experience. Featuring an ESP32-powered robot (Muon) that reacts to music and system states via the Muon Hub.
 
 ---
 
 ## 🚀 Overview
 
 This project is split into three main components:
-1.  **Frontend**: A modern Next.js dashboard for controlling and visualizing Mochi's state.
+1.  **Frontend**: The Muon Hub, a modern Next.js interface for controlling and visualizing Muon's state.
 2.  **Backend**: A Node.js Express server handling real-time WebSocket communication and Spotify integration.
-3.  **Hardware (ESP32)**: The firmware for the Mochi droid, managing OLED displays and movement.
+3.  **Hardware (ESP32)**: The firmware for the Muon droid, managing OLED displays and movement.
 
 ---
 
@@ -40,8 +40,8 @@ This project is split into three main components:
 .
 ├── backend/            # Express server & Spotify integration
 ├── frontend/           # Next.js web application
-├── esp32_mochi/        # ESP32 Arduino firmware
-├── docs/               # Project documentation
+├── esp32_muon/         # ESP32 Arduino firmware
+├── docs/               # Project documentation (FULL GUIDELINE IS HERE)
 ├── LICENSE             # MIT License
 └── README.md           # Project guide
 ```
@@ -66,16 +66,17 @@ npm run dev
 ```
 
 ### 3. Hardware Setup
-- Open `esp32_mochi/esp32_mochi.ino` in Arduino IDE or VS Code (PIIO).
+- Open `esp32_muon/esp32_muon.ino` in Arduino IDE or VS Code (PIIO).
 - Update Wi-Fi and Server IP credentials.
 - Flash to your ESP32.
+- READ THE docs FOLDER FOR GUIDELINES
 
 ---
 
 ## ✨ Features
 - **Spotify Integration**: Real-time music synchronization.
-- **WebSocket Communication**: Low-latency control between the dashboard and Mochi.
-- **Pixel Art Aesthetics**: A beautiful "Bento" style dashboard with retro vibes.
+- **WebSocket Communication**: Low-latency control between the Muon Hub and Muon.
+- **Pixel Art Aesthetics**: A beautiful "Bento" style Muon Hub with retro vibes.
 - **Modular Hardware**: Easily extensible ESP32 firmware.
 
 ---
